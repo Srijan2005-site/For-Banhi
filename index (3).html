@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Banhi</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1, h2, p {
+      color: #b30059;
+    }
+    #container {
+      padding: 30px;
+    }
+    video {
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      border: 2px solid #b30059;
+      border-radius: 12px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #ff4d94;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #finalMessage {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      color: #800040;
+      font-weight: bold;
+    }
+    .heart {
+      position: fixed;
+      top: -20px;
+      font-size: 24px;
+      color: red;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="container">
+    <h1>Welcome Banhi</h1>
+    <h2>A little surprise from your Babin</h2>
+    <video id="proposalVideo" controls>
+      <source src="VID_20250515_232848_327.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <h2>I love you Banhi... Will you marry me?</h2>
+    <button onclick="startHearts()">Yes ❤️</button>
+  </div>
+
+  <div id="finalMessage">You make Babin the most happy person in the earth.</div>
+
+  <script>
+    function startHearts() {
+      document.getElementById('finalMessage').style.display = 'block';
+      for (let i = 0; i < 50; i++) {
+        createHeart();
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      heart.innerHTML = '❤️';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
